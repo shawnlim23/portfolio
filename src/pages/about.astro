@@ -1,10 +1,76 @@
 ---
 import Base from '../layouts/Base.astro';
+
+type Entry = {
+  company: string;
+  role: string;
+  description: string;
+  year: string;
+  icon?: string;
+};
+
+// Placeholder data — replace with the real thing.
+const experience: Entry[] = [
+  {
+    company: 'Company Name',
+    role: 'Role Title',
+    description: 'One line on what you actually did here.',
+    year: '2024 — Present',
+  },
+];
+
+const education: Entry[] = [
+  {
+    company: 'University Name',
+    role: 'Degree, Major',
+    description: 'Anything worth noting — honors, focus area.',
+    year: '2020 — 2024',
+  },
+];
 ---
 
 <Base title="About">
-	<div class="prose">
-		<h1>About</h1>
-		<p>Write this.</p>
+	<div class="about-hero">
+		<div class="about-text prose">
+			<h1>Hi, I'm Shawn</h1>
+			<p>Write this.</p>
+		</div>
+		<div class="about-photo">
+			<span>Add photo</span>
+		</div>
 	</div>
+
+	<section class="entry-section">
+		<h2>Experience</h2>
+		<ul class="entry-list">
+			{experience.map((entry) => (
+				<li class="entry-item">
+					<div class="entry-icon">{entry.icon ? <img src={entry.icon} alt="" /> : entry.company.charAt(0)}</div>
+					<div class="entry-text">
+						<div class="entry-title">{entry.role}</div>
+						<div class="entry-company">{entry.company}</div>
+						<div class="entry-description">{entry.description}</div>
+					</div>
+					<div class="entry-year">{entry.year}</div>
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<section class="entry-section">
+		<h2>Education</h2>
+		<ul class="entry-list">
+			{education.map((entry) => (
+				<li class="entry-item">
+					<div class="entry-icon">{entry.icon ? <img src={entry.icon} alt="" /> : entry.company.charAt(0)}</div>
+					<div class="entry-text">
+						<div class="entry-title">{entry.role}</div>
+						<div class="entry-company">{entry.company}</div>
+						<div class="entry-description">{entry.description}</div>
+					</div>
+					<div class="entry-year">{entry.year}</div>
+				</li>
+			))}
+		</ul>
+	</section>
 </Base>
