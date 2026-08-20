@@ -90,7 +90,7 @@ video {
    both into one box, as before, made the math diverge from the header's
    and body text drifted out of alignment with the nav. */
 main {
-  padding: 2rem var(--gutter) 4rem;
+  padding: 2rem var(--gutter) 7rem;
   min-height: 60vh;
 }
 
@@ -200,6 +200,7 @@ main {
 
 .prose h1 {
   font-size: 1.75rem;
+  margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
