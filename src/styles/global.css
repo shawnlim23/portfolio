@@ -371,7 +371,7 @@ article .prose time {
   }
 
   .about-photo {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     order: -1;
     margin-top: 0;
   }
