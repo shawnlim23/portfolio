@@ -370,10 +370,18 @@ article .prose time {
     grid-template-columns: 1fr;
   }
 
+  /* Landscape and short on mobile — the photo is portrait content, but a
+     tall photo here pushes "Hi, I'm Shawn!" too far down the page. Biasing
+     object-position toward the top keeps the face in frame despite the
+     aggressive crop. */
   .about-photo {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 16 / 9;
     order: -1;
     margin-top: 0;
+  }
+
+  .about-photo img {
+    object-position: center 20%;
   }
 
   .entry-item {
