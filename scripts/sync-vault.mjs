@@ -1,7 +1,11 @@
 #!/usr/bin/env node
-// Copies publish:true notes from ~/vault/10-permanent into src/content/notes.
-// Run before every build: node scripts/sync-vault.mjs && astro build
-import { readdir, readFile, writeFile, mkdir, rm } from 'node:fs/promises';
+// Local-only step: copies publish:true notes from ~/vault/10-permanent into
+// src/content/notes, which is committed to this repo as the deploy source of
+// truth. Never run in CI — the vault is private and must never be checked out
+// on a third-party build machine. If the vault isn't present (e.g. running on
+// Cloudflare), this is a no-op that leaves already-committed notes untouched.
+// Run locally before pushing: node scripts/sync-vault.mjs
+import { readdir, readFile, writeFile, mkdir, rm, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { homedir } from 'node:os';
 
@@ -16,10 +20,16 @@ function hasPublishFlag(raw) {
 }
 
 async function main() {
+  const vaultPresent = await stat(SOURCE_DIR).then((s) => s.isDirectory()).catch(() => false);
+  if (!vaultPresent) {
+    console.log(`sync-vault: ${SOURCE_DIR} not found — skipping, using already-committed notes`);
+    return;
+  }
+
   await rm(DEST_DIR, { recursive: true, force: true });
   await mkdir(DEST_DIR, { recursive: true });
 
-  const entries = await readdir(SOURCE_DIR, { withFileTypes: true }).catch(() => []);
+  const entries = await readdir(SOURCE_DIR, { withFileTypes: true });
   let copied = 0;
 
   for (const entry of entries) {

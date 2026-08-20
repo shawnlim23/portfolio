@@ -22,7 +22,3 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
-
-# synced from ~/vault by scripts/sync-vault.mjs — not source of truth here
-src/content/notes/*
-!src/content/notes/.gitkeep
