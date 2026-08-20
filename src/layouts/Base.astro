@@ -29,7 +29,9 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
 			</div>
 		</header>
 		<main>
-			<slot />
+			<div class="main-inner">
+				<slot />
+			</div>
 		</main>
 	</body>
 </html>

@@ -72,7 +72,7 @@ video {
 }
 
 .site-header nav a {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -84,11 +84,19 @@ video {
   color: var(--fg);
 }
 
+/* main mirrors site-header's two-tier structure exactly (outer element
+   carries gutter padding, inner element carries max-width + auto margin)
+   so their content boxes land on identical left/right edges. Combining
+   both into one box, as before, made the math diverge from the header's
+   and body text drifted out of alignment with the nav. */
 main {
-  max-width: var(--content-width);
-  margin: 0 auto;
   padding: 2rem var(--gutter) 4rem;
   min-height: 60vh;
+}
+
+.main-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
 }
 
 /* work showcase */
@@ -218,7 +226,11 @@ article .prose time {
 }
 
 .about-text h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
+}
+
+.about-text p {
+  font-size: 0.95rem;
 }
 
 .about-photo {
@@ -296,17 +308,18 @@ article .prose time {
 
 .entry-title {
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .entry-company {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   margin-top: 0.1rem;
 }
 
 .entry-description {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   margin-top: 0.4rem;
 }
 
