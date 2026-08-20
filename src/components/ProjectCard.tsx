@@ -24,11 +24,13 @@ export default function ProjectCard({ title, summary, video, image, link }: Proj
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
-      {video ? (
-        <video ref={videoRef} src={video} muted loop playsInline poster={image} />
-      ) : image ? (
-        <img src={image} alt={title} />
-      ) : null}
+      <div className="media">
+        {video ? (
+          <video ref={videoRef} src={video} muted loop playsInline poster={image} />
+        ) : image ? (
+          <img src={image} alt={title} />
+        ) : null}
+      </div>
       <h3>{title}</h3>
       <p>{summary}</p>
     </div>
