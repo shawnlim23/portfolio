@@ -207,6 +207,17 @@ main {
   color: var(--fg);
 }
 
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--border);
+  transition: text-decoration-color 0.15s ease;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--fg);
+}
+
 article .prose time {
   display: block;
   font-family: ui-monospace, 'SF Mono', Menlo, monospace;
