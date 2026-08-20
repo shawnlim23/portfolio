@@ -1,8 +1,8 @@
-import { useMemo } from 'react';
+import { Children, useMemo } from 'react';
 import type { ReactNode } from 'react';
 
 type ScatterFieldProps = {
-  children: ReactNode[];
+  children: ReactNode | ReactNode[];
   seed?: number;
 };
 
@@ -18,18 +18,20 @@ function mulberry32(seed: number) {
 }
 
 export default function ScatterField({ children, seed = 1 }: ScatterFieldProps) {
+  const items = Children.toArray(children);
+
   const positions = useMemo(() => {
     const rand = mulberry32(seed);
-    return children.map(() => ({
+    return items.map(() => ({
       top: `${Math.floor(rand() * 80)}%`,
       left: `${Math.floor(rand() * 80)}%`,
       rotate: `${Math.floor(rand() * 16) - 8}deg`,
     }));
-  }, [children, seed]);
+  }, [items.length, seed]);
 
   return (
     <div className="scatter-field">
-      {children.map((child, i) => (
+      {items.map((child, i) => (
         <div
           key={i}
           className="scatter-item"
