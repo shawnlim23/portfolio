@@ -210,7 +210,7 @@ main {
 .prose a {
   text-decoration: underline;
   text-underline-offset: 2px;
-  text-decoration-color: var(--border);
+  text-decoration-color: var(--muted);
   transition: text-decoration-color 0.15s ease;
 }
 
