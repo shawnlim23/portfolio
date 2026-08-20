@@ -289,9 +289,6 @@ article .prose time {
 .entry-icon {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  background: #141412;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -300,10 +297,19 @@ article .prose time {
   overflow: hidden;
 }
 
+/* Only the letter-fallback (no real logo) gets the boxed treatment — a real
+   logo already has its own shape and transparent background, so a border +
+   dark fill around it just reads as an ugly box. */
+.entry-icon--letter {
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: #141412;
+}
+
 .entry-icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .entry-title {

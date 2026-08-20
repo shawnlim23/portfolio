@@ -12,7 +12,7 @@ const experience: Entry[] = [
   {
     company: 'Co-Museum',
     role: 'Founding Team Member & Head of Operations',
-    year: 'Dec 2022 — Feb 2026',
+    year: 'Dec 2022 — Jul 2026',
     icon: '/logos/co-museum.png',
   },
   {
@@ -72,7 +72,7 @@ const education: Entry[] = [
 		<ul class="entry-list">
 			{experience.map((entry) => (
 				<li class="entry-item">
-					<div class="entry-icon">{entry.icon ? <img src={entry.icon} alt="" /> : entry.company.charAt(0)}</div>
+					<div class={`entry-icon${entry.icon ? '' : ' entry-icon--letter'}`}>{entry.icon ? <img src={entry.icon} alt="" /> : entry.company.charAt(0)}</div>
 					<div class="entry-text">
 						<div class="entry-title">{entry.company}</div>
 						<div class="entry-company">{entry.role}</div>
@@ -88,7 +88,7 @@ const education: Entry[] = [
 		<ul class="entry-list">
 			{education.map((entry) => (
 				<li class="entry-item">
-					<div class="entry-icon">{entry.icon ? <img src={entry.icon} alt="" /> : entry.company.charAt(0)}</div>
+					<div class={`entry-icon${entry.icon ? '' : ' entry-icon--letter'}`}>{entry.icon ? <img src={entry.icon} alt="" /> : entry.company.charAt(0)}</div>
 					<div class="entry-text">
 						<div class="entry-title">{entry.company}</div>
 						<div class="entry-company">{entry.role}</div>
