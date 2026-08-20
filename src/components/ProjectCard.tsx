@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 type ProjectCardProps = {
   title: string;
@@ -11,9 +11,18 @@ type ProjectCardProps = {
 export default function ProjectCard({ title, summary, video, image, link }: ProjectCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleEnter = () => videoRef.current?.play();
+  // Touch devices have no hover state, so hover-to-play would never fire —
+  // autoplay the preview immediately there instead.
+  useEffect(() => {
+    if (!video) return;
+    if (window.matchMedia('(hover: none)').matches) {
+      videoRef.current?.play().catch(() => {});
+    }
+  }, [video]);
+
+  const handleEnter = () => videoRef.current?.play().catch(() => {});
   const handleLeave = () => {
-    if (!videoRef.current) return;
+    if (!videoRef.current || window.matchMedia('(hover: none)').matches) return;
     videoRef.current.pause();
     videoRef.current.currentTime = 0;
   };
