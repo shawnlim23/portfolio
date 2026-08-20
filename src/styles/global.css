@@ -317,12 +317,6 @@ article .prose time {
   margin-top: 0.1rem;
 }
 
-.entry-description {
-  color: var(--muted);
-  font-size: 0.82rem;
-  margin-top: 0.4rem;
-}
-
 .entry-year {
   font-family: ui-monospace, 'SF Mono', Menlo, monospace;
   font-size: 0.75rem;
