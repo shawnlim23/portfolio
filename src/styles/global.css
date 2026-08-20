@@ -142,16 +142,16 @@ main {
   font-size: 0.85rem;
 }
 
-/* essays */
+/* log */
 
-.essay-list {
+.log-list {
   list-style: none;
   margin: 2rem 0 0;
   padding: 0;
   max-width: var(--measure);
 }
 
-.essay-list li {
+.log-list li {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -160,23 +160,23 @@ main {
   border-bottom: 1px solid var(--border);
 }
 
-.essay-list a {
+.log-list a {
   font-size: 1rem;
   transition: color 0.15s ease;
 }
 
-.essay-list li:hover a {
+.log-list li:hover a {
   color: var(--muted);
 }
 
-.essay-list time {
+.log-list time {
   font-family: ui-monospace, 'SF Mono', Menlo, monospace;
   font-size: 0.75rem;
   color: var(--muted);
   white-space: nowrap;
 }
 
-/* about + essay body */
+/* about + log body */
 
 .prose {
   max-width: var(--measure);
@@ -222,7 +222,7 @@ article .prose time {
     gap: 2rem;
   }
 
-  .essay-list li {
+  .log-list li {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
