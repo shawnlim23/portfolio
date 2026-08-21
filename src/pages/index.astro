@@ -29,7 +29,10 @@ const jitter = projects.map(() => ({
 <Base title="Work">
 	{
 		projects.length === 0 ? (
-			<p class="empty-state">Nothing here yet — projects land in src/content/projects/.</p>
+			<p class="empty-state">
+				Work in progress — projects are landing here soon. In the meantime,
+				<a href="/about">say hi over on the About page</a>.
+			</p>
 		) : (
 			<div class="scatter-field">
 				{projects.map((project, i) => (
