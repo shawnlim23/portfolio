@@ -123,6 +123,18 @@ main {
   padding: 4rem 0;
 }
 
+.empty-state a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--muted);
+  transition: text-decoration-color 0.15s ease;
+}
+
+.empty-state a:hover {
+  text-decoration-color: var(--fg);
+}
+
 /* project card */
 
 .project-card {
