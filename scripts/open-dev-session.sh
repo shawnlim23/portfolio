@@ -5,10 +5,12 @@
 # Chrome window. Guarded against duplicate spawns: if the dev server is
 # already listening on 4321, assumes both are already open and does nothing.
 
+shopt -s nocasematch
 case "$PWD" in
   "$HOME"/Desktop/projs/portfolio*) ;;
   *) exit 0 ;;
 esac
+shopt -u nocasematch
 
 if lsof -i :4321 -sTCP:LISTEN >/dev/null 2>&1; then
   exit 0
